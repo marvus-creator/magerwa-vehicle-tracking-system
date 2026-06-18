@@ -5,9 +5,11 @@ A vehicle tracking management system for MAGERWA (Rwanda's public bonded warehou
 ## Features
 
 - **Admin Authentication** — sign up (names, email, phone, national ID), log in, log out. All management pages and APIs are restricted to logged-in admins.
-- **Client Management** — register clients (names, national ID, telephone, address) with paginated listing.
-- **Vehicle Management** — register vehicles (chassis number, manufacture company, year, price, model name) with paginated listing.
-- **Linkage & Display** — link a vehicle to a client with a unique plate number, and view all linked records in a paginated table.
+- **Staff Management** — list, add, edit, and delete admin staff in a paginated table. Editing keeps the current password when left blank; deleting is guarded so you cannot remove your own account or the last remaining staff account.
+- **Client Management** — register, edit, and delete clients (names, national ID, telephone, address) with paginated listing. Deleting a client automatically unlinks (and frees the plate of) any vehicles assigned to them.
+- **Vehicle Management** — register, edit, and delete vehicles (chassis number, manufacture company, year, price, model name) with paginated listing.
+- **Linkage & Display** — link a vehicle to a client with a unique plate number, view all linked records in a paginated table, edit a link (reassign client / change plate), or unlink a vehicle while keeping it registered.
+- **Data Integrity** — uniqueness checks on update (email, national ID, chassis, plate), POST-only deletes with confirm prompts, and validation with inline error feedback.
 - **REST API** — token-protected JSON endpoints usable from Postman.
 
 ## Requirements
@@ -53,14 +55,15 @@ All requests/responses use JSON. Protected endpoints require an `Authorization: 
 
 ```
 magerwa-vts/
+├── admins/         staff list, create, edit, delete
 ├── api/            REST API endpoints (token auth)
 ├── assets/css/     Stylesheet
 ├── auth/           signup, login, logout
-├── clients/        register + paginated list
+├── clients/        register, list, edit, delete
 ├── config/         app config + PDO connection
 ├── includes/       shared header, footer, helpers, pagination
 ├── sql/            database schema
-├── vehicles/       register, list, link, linked records
+├── vehicles/       register, list, edit, delete, link, edit link, unlink, linked records
 ├── dashboard.php   stats overview
 └── index.php       entry redirect
 ```
