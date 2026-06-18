@@ -40,11 +40,12 @@ require_once __DIR__ . '/../includes/header.php';
                         <th>Price (RWF)</th>
                         <th>Plate</th>
                         <th>Client</th>
+                        <th class="text-end">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!$vehicles): ?>
-                    <tr><td colspan="8" class="text-center text-muted py-4">No vehicles registered yet.</td></tr>
+                    <tr><td colspan="9" class="text-center text-muted py-4">No vehicles registered yet.</td></tr>
                     <?php else: ?>
                         <?php foreach ($vehicles as $i => $v): ?>
                         <tr>
@@ -67,6 +68,13 @@ require_once __DIR__ . '/../includes/header.php';
                                 <?php else: ?>
                                     <span class="badge text-bg-warning">Unlinked</span>
                                 <?php endif; ?>
+                            </td>
+                            <td class="text-end">
+                                <a href="<?= url('vehicles/edit.php?id=' . $v['id']) ?>" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+                                <form action="<?= url('vehicles/delete.php') ?>" method="post" class="d-inline" onsubmit="return confirm('Delete vehicle <?= e($v['chassis_number']) ?>? This cannot be undone.');">
+                                    <input type="hidden" name="id" value="<?= e($v['id']) ?>">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         <?php endforeach; ?>

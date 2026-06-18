@@ -29,6 +29,7 @@ $flash = get_flash();
                 <li class="nav-item"><a class="nav-link" href="<?= url('clients/index.php') ?>"><i class="bi bi-people me-1"></i>Clients</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= url('vehicles/index.php') ?>"><i class="bi bi-car-front me-1"></i>Vehicles</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= url('vehicles/linked.php') ?>"><i class="bi bi-link-45deg me-1"></i>Linked Records</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= url('admins/index.php') ?>"><i class="bi bi-person-badge me-1"></i>Staff</a></li>
             </ul>
             <div class="d-flex align-items-center text-white-50">
                 <span class="me-3 small"><i class="bi bi-person-circle me-1"></i><?= e($admin['names'] ?? '') ?></span>

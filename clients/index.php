@@ -33,11 +33,12 @@ require_once __DIR__ . '/../includes/header.php';
                         <th>National ID</th>
                         <th>Telephone</th>
                         <th>Address</th>
+                        <th class="text-end">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!$clients): ?>
-                    <tr><td colspan="5" class="text-center text-muted py-4">No clients registered yet.</td></tr>
+                    <tr><td colspan="6" class="text-center text-muted py-4">No clients registered yet.</td></tr>
                     <?php else: ?>
                         <?php foreach ($clients as $i => $client): ?>
                         <tr>
@@ -46,6 +47,13 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><?= e($client['national_id']) ?></td>
                             <td><?= e($client['telephone']) ?></td>
                             <td><?= e($client['address']) ?></td>
+                            <td class="text-end">
+                                <a href="<?= url('clients/edit.php?id=' . $client['id']) ?>" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+                                <form action="<?= url('clients/delete.php') ?>" method="post" class="d-inline" onsubmit="return confirm('Delete client <?= e($client['names']) ?>? This cannot be undone.');">
+                                    <input type="hidden" name="id" value="<?= e($client['id']) ?>">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                </form>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
