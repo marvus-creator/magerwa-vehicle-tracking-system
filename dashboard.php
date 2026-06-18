@@ -31,40 +31,48 @@ require_once __DIR__ . '/includes/header.php';
         </a>
     </div>
     <div class="col-lg col-md-4 col-sm-6">
-        <div class="card stat-card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div>
-                <h3 class="fw-bold mb-0"><?= $clientCount ?></h3>
-                <p class="text-muted mb-0">Registered Clients</p>
+        <a href="<?= url('clients/index.php') ?>" class="text-decoration-none">
+            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div>
+                    <h3 class="fw-bold mb-0 text-dark"><?= $clientCount ?></h3>
+                    <p class="text-muted mb-0">Registered Clients</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-lg col-md-4 col-sm-6">
-        <div class="card stat-card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-car-front-fill"></i></div>
-                <h3 class="fw-bold mb-0"><?= $vehicleCount ?></h3>
-                <p class="text-muted mb-0">Registered Vehicles</p>
+        <a href="<?= url('vehicles/index.php') ?>" class="text-decoration-none">
+            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-car-front-fill"></i></div>
+                    <h3 class="fw-bold mb-0 text-dark"><?= $vehicleCount ?></h3>
+                    <p class="text-muted mb-0">Registered Vehicles</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-lg col-md-4 col-sm-6">
-        <div class="card stat-card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="stat-icon bg-info-subtle text-info"><i class="bi bi-link-45deg"></i></div>
-                <h3 class="fw-bold mb-0"><?= $linkedCount ?></h3>
-                <p class="text-muted mb-0">Linked Vehicles</p>
+        <a href="<?= url('vehicles/linked.php') ?>" class="text-decoration-none">
+            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="stat-icon bg-info-subtle text-info"><i class="bi bi-link-45deg"></i></div>
+                    <h3 class="fw-bold mb-0 text-dark"><?= $linkedCount ?></h3>
+                    <p class="text-muted mb-0">Linked Vehicles</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-lg col-md-4 col-sm-6">
-        <div class="card stat-card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-exclamation-circle-fill"></i></div>
-                <h3 class="fw-bold mb-0"><?= $unlinkedCount ?></h3>
-                <p class="text-muted mb-0">Unlinked Vehicles</p>
+        <a href="<?= url('vehicles/link.php') ?>" class="text-decoration-none">
+            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-exclamation-circle-fill"></i></div>
+                    <h3 class="fw-bold mb-0 text-dark"><?= $unlinkedCount ?></h3>
+                    <p class="text-muted mb-0">Unlinked Vehicles</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
