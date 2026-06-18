@@ -1,6 +1,25 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 authed_admin();
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $id = resource_id();
+    $vehicle = apidb()->prepare('SELECT id FROM vehicles WHERE id = ? AND client_id IS NOT NULL');
+    $vehicle->execute([$id]);
+    if (!$vehicle->fetch()) {
+        respond(404, ['success' => false, 'message' => 'Linked record not found.']);
+    }
+
+    $stmt = apidb()->prepare('UPDATE vehicles SET client_id = NULL, plate_number = NULL WHERE id = ?');
+    $stmt->execute([$id]);
+
+    respond(200, [
+        'success' => true,
+        'message' => 'Vehicle unlinked successfully. It remains registered and can be linked again.',
+        'data' => ['vehicle_id' => $id],
+    ]);
+}
+
 require_method('POST');
 
 $data = body();

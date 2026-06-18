@@ -41,9 +41,16 @@ All requests/responses use JSON. Protected endpoints require an `Authorization: 
 | POST   | `/login.php`    | none   | email, password — returns `token` |
 | GET    | `/clients.php?page=1` | Bearer | — |
 | POST   | `/clients.php`  | Bearer | names, national_id, telephone, address |
+| PUT    | `/clients.php?id={id}` | Bearer | names, national_id, telephone, address |
+| DELETE | `/clients.php?id={id}` | Bearer | — (frees plate of any linked vehicles) |
 | GET    | `/vehicles.php?page=1` | Bearer | — |
 | POST   | `/vehicles.php` | Bearer | chassis_number, manufacture_company, manufacture_year, price, model_name |
+| PUT    | `/vehicles.php?id={id}` | Bearer | chassis_number, manufacture_company, manufacture_year, price, model_name |
+| DELETE | `/vehicles.php?id={id}` | Bearer | — |
 | POST   | `/link.php`     | Bearer | vehicle_id, client_id, plate_number |
+| DELETE | `/link.php?id={id}` | Bearer | — (unlinks vehicle, keeps it registered) |
+
+The `id` for `PUT`/`DELETE` may be passed as a query parameter (`?id={id}`) or in the JSON body.
 
 ### Example flow
 

@@ -6,7 +6,7 @@ require_once __DIR__ . '/../config/database.php';
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -26,6 +26,15 @@ function body(): array
         return $json;
     }
     return $_POST;
+}
+
+function resource_id(): int
+{
+    if (isset($_GET['id'])) {
+        return (int) $_GET['id'];
+    }
+    $data = body();
+    return (int) ($data['id'] ?? 0);
 }
 
 function respond(int $status, array $payload): void
