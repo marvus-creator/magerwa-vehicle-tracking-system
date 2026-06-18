@@ -2,6 +2,7 @@
 require_once __DIR__ . '/includes/functions.php';
 require_login();
 
+$staffCount = (int) db()->query('SELECT COUNT(*) FROM admins')->fetchColumn();
 $clientCount = (int) db()->query('SELECT COUNT(*) FROM clients')->fetchColumn();
 $vehicleCount = (int) db()->query('SELECT COUNT(*) FROM vehicles')->fetchColumn();
 $linkedCount = (int) db()->query('SELECT COUNT(*) FROM vehicles WHERE client_id IS NOT NULL')->fetchColumn();
@@ -18,7 +19,16 @@ require_once __DIR__ . '/includes/header.php';
 </div>
 
 <div class="row g-4">
-    <div class="col-md-3 col-sm-6">
+    <div class="col-lg col-md-4 col-sm-6">
+        <div class="card stat-card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-person-badge-fill"></i></div>
+                <h3 class="fw-bold mb-0"><?= $staffCount ?></h3>
+                <p class="text-muted mb-0">Staff Members</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg col-md-4 col-sm-6">
         <div class="card stat-card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div>
@@ -27,7 +37,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-lg col-md-4 col-sm-6">
         <div class="card stat-card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-car-front-fill"></i></div>
@@ -36,7 +46,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-lg col-md-4 col-sm-6">
         <div class="card stat-card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="stat-icon bg-info-subtle text-info"><i class="bi bi-link-45deg"></i></div>
@@ -45,7 +55,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-lg col-md-4 col-sm-6">
         <div class="card stat-card border-0 shadow-sm h-100">
             <div class="card-body">
                 <div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-exclamation-circle-fill"></i></div>
