@@ -40,11 +40,12 @@ require_once __DIR__ . '/../includes/header.php';
                         <th>Client</th>
                         <th>Client NID</th>
                         <th>Client Phone</th>
+                        <th class="text-end">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!$records): ?>
-                    <tr><td colspan="7" class="text-center text-muted py-4">No linked records yet.</td></tr>
+                    <tr><td colspan="8" class="text-center text-muted py-4">No linked records yet.</td></tr>
                     <?php else: ?>
                         <?php foreach ($records as $i => $r): ?>
                         <tr>
@@ -55,6 +56,13 @@ require_once __DIR__ . '/../includes/header.php';
                             <td><?= e($r['client_name']) ?></td>
                             <td><?= e($r['client_nid']) ?></td>
                             <td><?= e($r['client_phone']) ?></td>
+                            <td class="text-end">
+                                <a href="<?= url('vehicles/edit_link.php?id=' . $r['id']) ?>" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+                                <form action="<?= url('vehicles/unlink.php') ?>" method="post" class="d-inline" onsubmit="return confirm('Unlink vehicle <?= e($r['plate_number']) ?> from <?= e($r['client_name']) ?>?');">
+                                    <input type="hidden" name="id" value="<?= e($r['id']) ?>">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-link-45deg"></i></button>
+                                </form>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
