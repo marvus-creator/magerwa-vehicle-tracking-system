@@ -20,13 +20,15 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="row g-4">
     <div class="col-lg col-md-4 col-sm-6">
-        <div class="card stat-card border-0 shadow-sm h-100">
-            <div class="card-body">
-                <div class="stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-person-badge-fill"></i></div>
-                <h3 class="fw-bold mb-0"><?= $staffCount ?></h3>
-                <p class="text-muted mb-0">Staff Members</p>
+        <a href="<?= url('admins/index.php') ?>" class="text-decoration-none">
+            <div class="card stat-card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="stat-icon bg-secondary-subtle text-secondary"><i class="bi bi-person-badge-fill"></i></div>
+                    <h3 class="fw-bold mb-0 text-dark"><?= $staffCount ?></h3>
+                    <p class="text-muted mb-0">Staff Members</p>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
     <div class="col-lg col-md-4 col-sm-6">
         <div class="card stat-card border-0 shadow-sm h-100">
