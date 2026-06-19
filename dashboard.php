@@ -14,7 +14,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2 class="fw-bold mb-0">Dashboard</h2>
-        <p class="text-muted mb-0">Overview of clients and tracked vehicles</p>
+        <p class="text-muted mb-0">Overview of staff, clients and tracked vehicles</p>
     </div>
 </div>
 

@@ -39,6 +39,10 @@ All requests/responses use JSON. Protected endpoints require an `Authorization: 
 |--------|-----------------|--------|-------------|
 | POST   | `/signup.php`   | none   | names, email, phone, national_id, password |
 | POST   | `/login.php`    | none   | email, password — returns `token` |
+| GET    | `/admins.php?page=1` | Bearer | — |
+| POST   | `/admins.php`   | Bearer | names, email, phone, national_id, password |
+| PUT    | `/admins.php?id={id}` | Bearer | names, email, phone, national_id, password *(blank = keep)* |
+| DELETE | `/admins.php?id={id}` | Bearer | — (cannot delete self or the last admin) |
 | GET    | `/clients.php?page=1` | Bearer | — |
 | POST   | `/clients.php`  | Bearer | names, national_id, telephone, address |
 | PUT    | `/clients.php?id={id}` | Bearer | names, national_id, telephone, address |

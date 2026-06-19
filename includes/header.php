@@ -32,7 +32,7 @@ $flash = get_flash();
                 <li class="nav-item"><a class="nav-link" href="<?= url('admins/index.php') ?>"><i class="bi bi-person-badge me-1"></i>Staff</a></li>
             </ul>
             <div class="d-flex align-items-center text-white-50">
-                <span class="me-3 small"><i class="bi bi-person-circle me-1"></i><?= e($admin['names'] ?? '') ?></span>
+                <a class="me-3 small text-white-50 text-decoration-none" href="<?= url('admins/edit.php?id=' . ($admin['id'] ?? '')) ?>" title="Edit my profile"><i class="bi bi-person-circle me-1"></i><?= e($admin['names'] ?? '') ?></a>
                 <a class="btn btn-sm btn-outline-light" href="<?= url('auth/logout.php') ?>"><i class="bi bi-box-arrow-right me-1"></i>Logout</a>
             </div>
         </div>
